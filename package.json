@@ -7,7 +7,8 @@
     "compile": "./node_modules/.bin/babel -d lib/ src/",
     "prepublishOnly": "npm run compile",
     "dev": "./node_modules/.bin/nodemon dev/dev.js",
-    "test": "./node_modules/.bin/mocha test/*.test.js"
+    "test": "./node_modules/.bin/mocha test/*.test.js",
+    "bot": "node ./fake/bot.js"
   },
   "author": "yfsoftcom",
   "license": "ISC",

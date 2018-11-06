@@ -24,4 +24,18 @@ npm add fpm-plugin-mqtt-client --save
 
 - subscribe
 
+  ```javascript
+  // subscribe a topic
+  fpm.execute('mqttclient.subscribe', { topic: '$d2s/a111' });
+
+  // handle the message.
+  fpm.subscribe('$d2s/a111', (topic, payload) => {
+    console.log(topic, payload);
+  });
+  ```
+
 - other
+
+  ```javascript
+
+  ```

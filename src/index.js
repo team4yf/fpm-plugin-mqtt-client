@@ -17,6 +17,9 @@ module.exports = {
       const { host, port, username, password, clientId } = mqttserverOption;
 
       client = mqtt.connect(`mqtt://${host}:${port}`, { username, password, clientId });
+      client.on('message', (topic, payload) => {
+        fpm.publish(topic, payload);
+      });
     })
 
     const bizModule = {
@@ -25,16 +28,18 @@ module.exports = {
         return 1;
       },
       subscribe: async (args) => {
-        client.subscribe(args.topic, (topic, message) => {
-          fpm.publish(topic, message);
-        });
+        client.subscribe(args.topic);
         return 1;
-      }
+      },
+      unsubscribe: async (args) => {
+        client.unsubscribe(args.topic);
+        return 1;
+      },
     };
 
     fpm.registerAction('BEFORE_SERVER_START', () => {
       fpm.extendModule('mqttclient', bizModule)
     })
-    return client;
+    return bizModule;
   }
 }

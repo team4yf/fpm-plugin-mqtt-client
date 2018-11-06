@@ -14,8 +14,15 @@ biz.addSubModules('test',{
 app.addBizModules(biz);
 
 // this plugin should run when INIT , but we cant run it in Dev Mode, so We should Run It Manually
-app.runAction('INIT', app)
-app.subscribe('#someevent', (topic, data)=>{
-	console.log(topic, data)
+app.runAction('INIT', app);
+
+app.subscribe('$s2d/a111/fake', (topic, data)=>{
+	console.log(topic, data);
 });
-app.run()
+app.run().then(() => {
+	ref.subscribe({ topic: '$s2d/a111/fake'});
+});
+
+setTimeout(() => {
+	ref.unsubscribe({topic: '$s2d/a111/fake'})
+}, 15000);
