@@ -11,6 +11,7 @@ client.publish('$s2d/a111/fake', 'foobar');
 setInterval(() => {
   client.publish('$s2d/a111/fake', 'foobar');
 }, 5*1000);
+client.subscribe(['$d2s/a111/fake'])
 client.on('message', (topic, payload) => {
-    console.log('bot receive: ', topic, payload.toString());
+  console.log('bot receive: ', topic, payload.toString());
 })

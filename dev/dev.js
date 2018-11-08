@@ -23,6 +23,6 @@ app.run().then(() => {
 	ref.subscribe({ topic: '$s2d/a111/fake'});
 });
 
-setTimeout(() => {
-	ref.unsubscribe({topic: '$s2d/a111/fake'})
-}, 15000);
+// setTimeout(() => {
+// 	ref.unsubscribe({topic: '$s2d/a111/fake'})
+// }, 15000);

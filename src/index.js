@@ -24,6 +24,13 @@ module.exports = {
 
     const bizModule = {
       publish: async (args) => {
+        const { format = 'string', payload = '' } = args;
+        if(format == 'hex'){
+          args.payload = Buffer.from(payload, 'hex');
+        }else{
+          args.payload = payload.toString();
+        }
+        console.log(args)
         client.publish(args.topic, args.payload, { qos: args.qos || 1, retain: true});
         return 1;
       },

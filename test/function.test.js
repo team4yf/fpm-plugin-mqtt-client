@@ -16,7 +16,7 @@ describe('Function', function(){
 
   it('Function A', function(done){
     var func = new Func('mqttclient.publish');
-    func.invoke({topic: '$s2d/a111', payload: 'foobar'})
+    func.invoke({topic: '$s2d/a111/fake', payload: '030303', format: 'string'})
       .then(function(data){
         console.log(data)
         done();
