@@ -1,6 +1,6 @@
 {
   "name": "fpm-plugin-mqtt-client",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "description": "A Plugin Named [fpm-plugin-mqtt-client] For YF-FPM-SERVER~",
   "main": "lib/index.js",
   "scripts": {
@@ -28,6 +28,6 @@
     "mocha": "^3.2.0",
     "nodemon": "^1.11.0",
     "yf-fpm-client-js": "^1.0.2",
-    "yf-fpm-server": "^2.4.11"
+    "yf-fpm-server": "^2.5.0"
   }
 }

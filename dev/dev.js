@@ -19,8 +19,11 @@ app.runAction('INIT', app);
 app.subscribe('$s2d/a111/fake', (topic, data)=>{
 	console.log(topic, data);
 });
+app.subscribe('$test', (topic, data)=>{
+	console.log(topic, data);
+});
 app.run().then(() => {
-	ref.subscribe({ topic: '$s2d/a111/fake'});
+	ref.subscribe({ topic: [ '$s2d/a111/fake', '$test' ]});
 });
 
 // setTimeout(() => {
