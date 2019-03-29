@@ -1,6 +1,7 @@
 const _ = require('lodash');
 const mqtt = require('mqtt');
 const crypto = require('crypto');
+const debug = require('debug')('fpm-plugin-mqtt-client');
 
 let client;
 module.exports = {
@@ -23,7 +24,7 @@ module.exports = {
         password: MQTT_PASS || option.password,
         clientId: MQTT_CLIENTID || option.clientId,
       });
-
+      debug('The MQTT Connection Options: %O', { host, port, username, password, clientId })
       client = mqtt.connect(`mqtt://${host}:${port}`, { username, password, clientId });
       client.on('message', (topic, payload) => {
         fpm.publish(topic, payload);
@@ -38,6 +39,7 @@ module.exports = {
         }else{
           args.payload = payload.toString();
         }
+        debug('Public a message: %O', args);
         client.publish(args.topic, args.payload, { qos: args.qos || 1, retain: true});
         return 1;
       },
