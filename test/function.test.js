@@ -1,7 +1,6 @@
-const should = require("chai").should();
-const fpmc = require("yf-fpm-client-js").default;
-const { Func } = fpmc;
-fpmc.init({appkey: '123123', masterKey: '123123', domain: 'http://localhost:9999'});
+const assert = require('assert');
+const { init, Func } = require('fpmc-jssdk');
+init({appkey: '123123', masterKey: '123123', endpoint: 'http://localhost:9999/api'});
 
 const mqtt = require('mqtt');
 const client = mqtt.connect('mqtt://localhost:1883', {
@@ -45,7 +44,7 @@ describe('Function', function(){
       })
     client.on('message', (topic, message) => {
       if(topic == '$test'){
-        message.toString().should.equal('content');
+        assert(message.toString(),'content');
         done();
       }
     });
@@ -63,7 +62,7 @@ describe('Function', function(){
       })
     client.on('message', (topic, message) => {
       if(topic == '$test2'){
-        message.toString('hex').should.equal('01020304');
+        assert(message.toString('hex'),'01020304');
         done();
       }
     });

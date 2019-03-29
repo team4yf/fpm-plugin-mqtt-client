@@ -1,6 +1,6 @@
-src/
 dev/
 sql/
 views/
+fake/
 db.lock
 .babelrc
