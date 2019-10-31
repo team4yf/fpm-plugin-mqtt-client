@@ -40,7 +40,7 @@ module.exports = {
           args.payload = payload.toString();
         }
         debug('Public a message: %O', args);
-        client.publish(args.topic, args.payload, { qos: args.qos || 1, retain: true});
+        client.publish(args.topic, args.payload, { qos: args.qos || 2, retain: true });
         return 1;
       },
       subscribe: async (args) => {

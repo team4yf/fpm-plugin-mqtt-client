@@ -1,11 +1,11 @@
 {
   "name": "fpm-plugin-mqtt-client",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "A Plugin Named [fpm-plugin-mqtt-client] For YF-FPM-SERVER~",
   "main": "src/index.js",
   "scripts": {
-    "dev": "./node_modules/.bin/nodemon dev/dev.js",
-    "test": "./node_modules/.bin/mocha test/*.test.js",
+    "dev": "npx nodemon dev/dev.js",
+    "test": "npx mocha test/*.test.js",
     "bot": "node ./fake/bot.js"
   },
   "author": "yfsoftcom",
@@ -16,10 +16,9 @@
     "mqtt": "^2.18.8"
   },
   "devDependencies": {
-    "babel-runtime": "^6.0.0",
-    "fpmc-jssdk": "^1.0.7",
+    "fpmc-jssdk": "^1.0.8",
     "mocha": "^6.0.2",
     "nodemon": "^1.11.0",
-    "yf-fpm-server": "^2.5.3"
+    "yf-fpm-server": "^2.6.1"
   }
 }
